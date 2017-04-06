@@ -1,18 +1,17 @@
 import React from 'react';
-import {render} from 'react-dom';
+import ReactDOM from 'react-dom';
+import { Route,  BrowserRouter as Router, Provider } from 'react-router-dom';
 
-import Navbar from './layout/navbar.jsx'
-import BodyContent from './layout/bodycontent.jsx'
+import FileUploadComponent from './pages/uploadfile.jsx';
 
 class App extends React.Component {
-  render () {
-    return (
-        <div>
-            <Navbar />
-            <BodyContent />
-        </div>
-    );
-  }
+    render() {
+        return (
+            <Router>
+                <Route exact={true} path="/" component={FileUploadComponent} />
+            </Router>
+        );
+    }
 }
 
-render(<App/>, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));
